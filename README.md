@@ -73,29 +73,29 @@ measure the runtime and enter it into the table.
 
 |                | `sequential_search_itr`   | `binary_search_rec`   |
 | -------------- | ------------------------- | --------------------- | 
-| `n=2**0`       |                           |                       |
-| `n=2**1`       |                           |                       |
-| `n=2**2`       |                           |                       |
-| `n=2**3`       |                           |                       |
-| `n=2**4`       |                           |                       |
-| `n=2**5`       |                           |                       |
-| `n=2**6`       |                           |                       |
-| `n=2**7`       |                           |                       |
-| `n=2**8`       |                           |                       |
-| `n=2**9`       |                           |                       |
-| `n=2**10`      |                           |                       |
-| `n=2**11`      |                           |                       |
-| `n=2**12`      |                           |                       |
-| `n=2**13`      |                           |                       |
-| `n=2**14`      |                           |                       |
-| `n=2**15`      |                           |                       |
-| `n=2**16`      |                           |                       |
-| `n=2**17`      |                           |                       |
-| `n=2**18`      |                           |                       |
-| `n=2**19`      |                           |                       |
-| `n=2**20`      |                           |                       |
-| `n=2**21`      |                           |                       |
-| `n=2**22`      |                           |                       |
+| `n=2**0`       |      0.135 usec           |       0.667 usec      |
+| `n=2**1`       |      0.173 usec           |       0.962 usec      |
+| `n=2**2`       |      0.247 usec           |       1.19 usec       |
+| `n=2**3`       |      0.36 usec            |       1.05 usec       |
+| `n=2**4`       |      0.494 usec           |       1.24 usec       |
+| `n=2**5`       |      0.862 usec           |       1.48 usec       |
+| `n=2**6`       |      1.49 usec            |       1.73 usec       |
+| `n=2**7`       |      2.59 usec            |       2.07 usec       |
+| `n=2**8`       |      5.01 usec            |       2.34 usec       |
+| `n=2**9`       |      10.4 usec            |       2.63 usec       |
+| `n=2**10`      |      20.3 usec            |        2.85 usec      |
+| `n=2**11`      |      40.5 usec            |        3.17 usec      |
+| `n=2**12`      |      80.3 usec            |        3.37 usec      |
+| `n=2**13`      |      159 usec             |        4.74 usec      |
+| `n=2**14`      |      322 usec             |        3.87 usec      |
+| `n=2**15`      |      645 usec             |        4.21 usec      |
+| `n=2**16`      |      1.26 msec            |        4.51 usec      |
+| `n=2**17`      |      2.54 msec            |        4.6 usec       |
+| `n=2**18`      |      5.15 msec            |        4.84 usec      |
+| `n=2**19`      |      10.4 msec            |        5.02 usec      |
+| `n=2**20`      |      20.8 msec            |        5.41 usec      |
+| `n=2**21`      |      40.5 msec            |        7.26 usec      |
+| `n=2**22`      |      82.9 msec            |      6.19 usec        |
 
 > **HINT:**
 > You don't have to run all of these tests manually.
@@ -132,6 +132,8 @@ You should observe that:
   You should ensure that this multiplicative vs additive slowdown makes sense to you based on the properties of logarithms.
 
 At [FAANG](https://en.wikipedia.org/wiki/Big_Tech#FAANG)-type companies,
+                        print(new_stack)dd
+
 they are searching through datasets of size `n>1000000000000000` (15+ zeros).
 It should hopefully be clear from these examples that the logarithmic runtime is absolutely essential for any realtime queries of datasets of this size.
 
@@ -227,12 +229,12 @@ measure the runtime and enter it into the table.
 
 |                            | `array`  | `list`  | `tuple`     | `deque`       |
 | -------------------------- | ---------| --------|------------ | ------------- |
-| `sequential_search_itr`    |          |         |             |               |
-| `sequential_search_itr2`   |          |         |             |               |
+| `sequential_search_itr`    | 9.02 msec|1.88 msec| 1.17 msec   | 1.27 msec     |
+| `sequential_search_itr2`   | 11.4 msec|6.67 msec| 2.37 msec   | 120 msec      |
 | `sequential_search_rec`    |  ---     | ---     |  ---        |  ---          |
-| `binary_search_itr`        |          |         |             |               |
-| `binary_search_rec`        |          |         |             |               |
-| `binary_search_rec2`       |          |         |             |  ---          |
+| `binary_search_itr`        | 9.78 usec|5.68 usec| 2.25 usec   | 173 usec      |
+| `binary_search_rec`        | 11.4 usec|6.98 usec| 4.29 usec   | 176 usec      |
+| `binary_search_rec2`       | 9.26 usec|7.84 usec| 437 usec    |  ---          |
 
 You should notice that:
 1. for the `array` container, all implementations of binary search work well
